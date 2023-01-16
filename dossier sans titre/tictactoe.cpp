@@ -124,8 +124,8 @@ void TicTacToe::affichage(bool start)
   }
   cout << endl;
 
-  // system("cls");   // Windows
-  // system("clear"); // Linux
+  system("cls");   // Windows
+  system("clear"); // Linux
   cout << "+ PARTIE DE MORPION +" << endl;
 
   cout << endl;
@@ -164,31 +164,6 @@ void TicTacToe::affichage(bool start)
 }
 
 /* *********************************************************** */
-/* Objectif : méthode pour évaluer les coups ORDINATEUR        */
-/* *********************************************************** */
-bool TicTacToe::vide()
-{
-  int cpt_case_utilisable = 0;
-  for (int l = 0; l < 3; l++)
-  {
-    for (int c = 0; c < 3; c++)
-    {
-      if (T[l][c] == 0)
-      {
-        cpt_case_utilisable++;
-      }
-    }
-  }
-  if (cpt_case_utilisable == 0)
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-/* *********************************************************** */
 /* Objectif : méthode pour évaluer les coups HUMAIN            */
 /* *********************************************************** */
 int TicTacToe::minimax(bool humain)
@@ -196,7 +171,7 @@ int TicTacToe::minimax(bool humain)
 
   if (humain == true)
   {
-    int best = -1;
+    int best = -10;
 
     for (int l = 0; l < 3; l++)
     {
@@ -218,7 +193,7 @@ int TicTacToe::minimax(bool humain)
   }
   else
   {
-    int best = 1;
+    int best = 10;
 
     for (int l = 0; l < 3; l++)
     {
@@ -239,18 +214,16 @@ int TicTacToe::minimax(bool humain)
     return best;
   }
 }
-
 /* *********************************************************** */
 /* Objectif : méthode pour évaluer les coups ORDINATEUR        */
 /* *********************************************************** */
 int TicTacToe::JeuOrdi(int &bestMoveLigne, int &bestMoveColonne)
 {
-
   int score = -2;
   int scoreActuelle;
 
-  bestMoveLigne = -1;
-  bestMoveColonne = -1;
+  // bestMoveLigne = -1;
+  // bestMoveColonne = -1;
 
   for (int l = 0; l < 3; l++)
   {
@@ -285,7 +258,10 @@ int TicTacToe::JeuOrdi(int &bestMoveLigne, int &bestMoveColonne)
 /* *********************************************************** */
 int TicTacToe::JeuHumain(int &bestMoveLigne, int &bestMoveColonne)
 {
-  return 1;
+  /* Elle affecte bestMove le meilleur coup de l’humain et renvoie la valeur de
+  l’etat du jeu correspondant à ce coup.*/
+
+  return (1);
 }
 
 /* *********************************************** */
@@ -384,7 +360,7 @@ int TicTacToe::arbitre()
 int TicTacToe::aQuiLeTour(int playingJoueur) // méthode qui décide aléatoirement qui commence une nouvelle partie
 {
   /* Elle renvoie 0 si c'est l'ordinateur, 1 si c'est l'humain */
-  // cout << "coucou " << playingJoueur << endl;
+  cout << "coucou " << playingJoueur << endl;
   if (playingJoueur == -2)
   {
     int premierJoueur;

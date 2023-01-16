@@ -102,13 +102,13 @@ int main()
         {
           // Cas 2: au tour de l'ordinateur à jouer
           // Intelligence IA
-
           maPartie->JeuOrdi(bestMoveLigne, bestMoveColonne);
           maPartie->simulation(0, bestMoveLigne, bestMoveColonne, false);
         }
 
         // Fin du coup
         maPartie->affichage(startJeu);
+        // cout << "numero joueur: " << playingJoueur << endl;
       }
 
       // Partie finie
